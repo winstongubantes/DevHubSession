@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleApp"
+             xmlns:viewModels="clr-namespace:SampleApp.ViewModels;assembly=SampleApp"
+             x:Class="SampleApp.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewModels:LoginPageViewModel></viewModels:LoginPageViewModel>
+    </ContentPage.BindingContext>
+
+    <!-- CREATING LOGIN FORM USING GRID (DEFINES NO COLUMN AND ROW DEFINITIONS)-->
+    <Grid>
+        <Image Source="loginbg.jpg" Aspect="AspectFill"/>
+
+        <StackLayout BackgroundColor="White" 
+                     Margin="20, 120"
+                     Opacity="0.5"></StackLayout>
+
+        <StackLayout Margin="50, 60, 50, 20">
+            <Image Source="applogo.png" 
+                   Margin="0,0,0,40"
+                   WidthRequest="200" 
+                   HeightRequest="200"></Image>
+
+            <!--Contains Entry Elements-->
+            <Entry Placeholder="Username" 
+                   PlaceholderColor="White"
+                   Text="{Binding Username}"></Entry>
+            <Entry Placeholder="Password" 
+                   PlaceholderColor="White" 
+                   IsPassword="True"
+                   Text="{Binding Password}"></Entry>
+            <Button Text="Login"
+                    TextColor="White" 
+                    BackgroundColor="#77D065"
+                    Command="{Binding LoginCommand}"></Button>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
